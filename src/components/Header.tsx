@@ -31,6 +31,42 @@ export default function Header () {
         >
           Repository list
         </NavLink>
+
+        <NavLink
+          to="/favorite-animal"
+          className={({ isActive }) =>
+            [
+              "pb-4 border-b-[3px]",
+              isActive ? "border-yellow-500" : "border-b-transparent",
+            ].join(" ")
+          }
+        >
+          Favorite animal
+        </NavLink>
+
+        <NavLink
+          to="/review-service"
+          className={({ isActive }) =>
+            [
+              "pb-4 border-b-[3px]",
+              isActive ? "border-yellow-500" : "border-b-transparent",
+            ].join(" ")
+          }
+        >
+          Review service
+        </NavLink>
+
+        <NavLink
+          to="/range-slider"
+          className={({ isActive }) =>
+            [
+              "pb-4 border-b-[3px]",
+              isActive ? "border-yellow-500" : "border-b-transparent",
+            ].join(" ")
+          }
+        >
+          Range slider
+        </NavLink>
       </nav>
     </header>
   )
