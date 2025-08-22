@@ -10,3 +10,9 @@ input[type='range']::-moz-range-thumb {
   @apply appearance-none w-6 h-6 bg-white border-[3px] border-solid border-[#6a38c2] rounded-full cursor-pointer pointer-events-auto transition-all duration-200 hover:scale-110;
 }
 
+@layer components {
+  .swiper-pagination-bullet {
+		@apply relative w-2 h-2 cursor-pointer transition-all !rounded-full bg-blue-500/20 block [&.is-active]:bg-blue-500 [&.is-active]:w-8;
+	}
+}
+

@@ -10,6 +10,7 @@ import NotFound from './pages/NotFound';
 import FavoriteAnimal from './pages/FavoriteAnimal.js';
 import ReviewService from './pages/ReviewService.js';
 import RangeSliderExample from './pages/RangeSliderExample.js';
+import SwiperExample from './pages/SliderExample.js';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,6 +23,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/favorite-animal" element={<FavoriteAnimal />} />
         <Route path="/review-service" element={<ReviewService />} />
         <Route path="/range-slider" element={<RangeSliderExample />} />
+        <Route path="/slider-example" element={<SwiperExample />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
