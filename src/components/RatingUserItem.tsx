@@ -1,4 +1,4 @@
-import { Rating } from '../pages/ReviewService'
+import type { Rating } from '../pages/ReviewService'
 
 interface RatingUserItemProps {
   allRatings: Rating[]

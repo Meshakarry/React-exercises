@@ -14,13 +14,14 @@
     "forceConsistentCasingInFileNames": true, // Disallows inconsistent casing in file names.
     "noFallthroughCasesInSwitch": true, // Reports errors for fallthrough cases in switch statements.
     "module": "esnext", // Specifies the module code generation.
-    "moduleResolution": "node", // Specifies how modules are resolved.
+    "moduleResolution": "bundler", // Specifies how modules are resolved.
     "resolveJsonModule": true, // Allows importing .json files.
     "isolatedModules": true, // Ensures that each file can be safely transpiled without relying on other files.
     "noEmit": true, // Disables emitting output files. Useful when using a bundler like Webpack.
     "jsx": "react-jsx", // Specifies the JSX emit mode for React.
     "baseUrl": "src",
-    "rootDirs": [".", "./.react-router/types"]
+    "rootDirs": [".", "./.react-router/types"],
+    "types": ["vite/client"],
   },
-  "include": [".react-router/types/**/*", "src"],
+  "include": [".react-router/types/**/*", "src", "vite.config.ts"],
 }

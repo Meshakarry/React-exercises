@@ -2,12 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type='range']::-webkit-slider-thumb {
+/* input[type='range']::-webkit-slider-thumb {
   @apply appearance-none w-6 h-6 bg-white border-[3px] border-solid border-[#6a38c2] rounded-full cursor-pointer pointer-events-auto transition-all duration-200 hover:scale-110;
 }
 
 input[type='range']::-moz-range-thumb {
   @apply appearance-none w-6 h-6 bg-white border-[3px] border-solid border-[#6a38c2] rounded-full cursor-pointer pointer-events-auto transition-all duration-200 hover:scale-110;
+} */
+
+input[type='range']::-webkit-slider-thumb {
+  @apply appearance-none w-[1.125rem] h-[1.125rem] -mt-2.5 bg-blue-600 rounded-full cursor-pointer pointer-events-auto;
+}
+
+input[type='range']::-moz-range-thumb {
+  @apply appearance-none w-[1.125rem] h-[1.125rem] -mt-2.5 bg-blue-600 rounded-full cursor-pointer pointer-events-auto;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 @layer components {

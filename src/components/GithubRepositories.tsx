@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Repo } from '../pages/GithubRepositoriesList'
+import type { Repo } from '../pages/GithubRepositoriesList'
 
 interface GithubRepositoriesProps {
   repos: Repo[]

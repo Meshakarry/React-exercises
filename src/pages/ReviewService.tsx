@@ -30,30 +30,34 @@ export default function ReviewService () {
   const currentRating = allRatings.reduce((acc: number, r: any) => acc + r.rating, 0) / allRatings.length || 0;
 
   function handleRatingUpdate(rating: number) {
-    const newRating = {
-      ...currentUser,
-      rating,
-    }
+    if (!currentUser.email) return; // no user yet
+    const alreadyRated = allRatings.some(r => r.email === currentUser.email);
+    if (alreadyRated) return; // ignore duplicate
 
-    setAllRatings((ratings: Rating[]) => ([
-      newRating,
-      ...ratings
-    ]))
+    const newRating = { ...currentUser, rating };
+    setAllRatings(prev => [newRating, ...prev]);
   }
 
   useEffect(() => {
+    const controller = new AbortController();
+
     async function fetchRandomUser() {
       try {
-        const response = await fetch('https://randomuser.me/api/');
+        const response = await fetch('https://randomuser.me/api/', { signal: controller.signal });
         const data = await response.json();
         console.log(data.results[0]);
         setCurrentUser(data.results[0]);
       } catch (error) {
+        if (error.name === 'AbortError') return; // ignore canceled requests
         console.error("Error fetching random user:", error);
       }
     }
     fetchRandomUser();
-  }, [allRatings])
+
+    return () => {
+      controller.abort();
+    };
+  }, [allRatings.length])
 
   return (
     <div>

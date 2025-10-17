@@ -67,6 +67,18 @@ export default function Header () {
         >
           Range slider
         </NavLink>
+
+        <NavLink
+          to="/generic-components"
+          className={({ isActive }) =>
+            [
+              "pb-4 border-b-[3px]",
+              isActive ? "border-yellow-500" : "border-b-transparent",
+            ].join(" ")
+          }
+        >
+          Generic
+        </NavLink>
       </nav>
     </header>
   )
