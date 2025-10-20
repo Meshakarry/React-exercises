@@ -11,10 +11,11 @@ interface InputDropdownProps<T extends string | number> {
   options: Option<T>[];
   defaultOption?: Option<T>;
   label?: string;
+  className?: string
   onChange?: (value: T) => void
 }
 
-export default function InputDropdown<T extends string | number>({ id, options, defaultOption, label, onChange }: InputDropdownProps<T>) {
+export default function InputDropdown<T extends string | number>({ id, options, defaultOption, label, className, onChange }: InputDropdownProps<T>) {
   const [selectedOption, setSelectedOption] = useState(defaultOption?.value ?? options[0].value);
 
   function handleChange (e: React.ChangeEvent<HTMLSelectElement>) {
@@ -23,7 +24,7 @@ export default function InputDropdown<T extends string | number>({ id, options, 
   }
 
   return (
-  <div className="flex items-center gap-2">
+  <div className={`flex items-center gap-2 ${className ?? ''}`}>
     <label htmlFor="id" className="text-blue-800">
       { label }
     </label>
@@ -51,7 +52,7 @@ export default function InputDropdown<T extends string | number>({ id, options, 
       <span className="absolute inset-y-0 flex items-center pointer-events-none end-0 px-2.5">
         <Icon
           name="chevron"
-          className="w-4 h-4 text-gray-600"
+          className="w-4 h-4 text-gray-600 rotate-90"
           aria-hidden="false"
         />
       </span>

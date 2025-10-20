@@ -4,6 +4,8 @@ import InputDropdown from '../components/Generic/InputDropdown';
 import Table from '../components/Generic/Table';
 import InputCounter from '../components/Generic/InputCounter';
 import DoubleRangeSlider from '../components/Generic/DoubleRangeSlider';
+import ProductList from '../components/ProductList';
+import FormSubmission from '../components/FormSubmission';
 
 export const PER_PAGE_OPTIONS = [
   { label: '8', value: 8 },
@@ -56,11 +58,18 @@ export default function GenericPage () {
         )
       case 'input-counter':
         return (
-          <InputCounter />
+          <div>
+            <InputCounter />
+            <ProductList />
+          </div>
         )
       case 'range-slider':
         return (
           <DoubleRangeSlider range={{min: 0, max: 6000}} updateRange={() => console.log('RANGE UPDATE!!!')} />
+        )
+      case 'form-submission':
+        return (
+         <FormSubmission />
         )
       default:
         return (
@@ -90,6 +99,10 @@ export default function GenericPage () {
             {
               label: 'Double range slider',
               value: 'range-slider',
+            },
+            {
+              label: 'Form submission',
+              value: 'form-submission',
             }
           ]}
           name="tab-test"

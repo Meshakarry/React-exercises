@@ -29,6 +29,7 @@ export default function InputRadio ({ id, title, name, value, hidden, checked, o
         name={name}
         value={value}
         hidden={hidden}
+        checked={checked}
         onChange={() => onChange(value)}
       />
     </div>
