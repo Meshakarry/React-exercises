@@ -6,6 +6,7 @@ import InputCounter from '../components/Generic/InputCounter';
 import DoubleRangeSlider from '../components/Generic/DoubleRangeSlider';
 import ProductList from '../components/ProductList';
 import FormSubmission from '../components/FormSubmission';
+import ColorBoxContainer from '../components/ColorBoxContainer';
 
 export const PER_PAGE_OPTIONS = [
   { label: '8', value: 8 },
@@ -59,6 +60,7 @@ export default function GenericPage () {
       case 'input-counter':
         return (
           <div>
+            <ColorBoxContainer />
             <InputCounter />
             <ProductList />
           </div>

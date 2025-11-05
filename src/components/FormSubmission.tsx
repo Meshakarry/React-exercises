@@ -1,4 +1,6 @@
 import { useReducer } from 'react';
+import { useFormStatus } from "react-dom";
+
 
 import InputForm from '../components/Generic/InputForm';
 import Input from '../components/Generic/Input';
@@ -7,6 +9,7 @@ import InputCheckbox from '../components/Generic/InputCheckbox';
 import InputFile from '../components/Generic/InputFile';
 import InputTextarea from '../components/Generic/InputTextarea';
 import InputDropdown from '../components/Generic/InputDropdown';
+import FromToFilter from './Generic/FromToFilter';
 
 export const PER_PAGE_OPTIONS = [
   { label: '8', value: 8 },
@@ -44,9 +47,23 @@ function formReducer(state: typeof initialState, action: Action) {
   }
 }
 
+
+function Submit() {
+  const { pending } = useFormStatus();
+  return (
+    <button 
+      type="submit"
+      className="rounded-2xl bg-green-400 p-4 text-white"
+      disabled={pending}
+    >
+      {pending ? "Submitting..." : "Submit"}
+    </button>
+  );
+}
+
 export default function FormSubmission () {
   const [state, dispatch] = useReducer(formReducer, initialState);
-
+  
   const handleInputChange = (field: keyof typeof initialState, value: string | number | File) => {
     dispatch({ type: 'SET_FIELD', field, value });
   };
@@ -158,6 +175,15 @@ export default function FormSubmission () {
           onInput={(e: any) => handleInputChange("about", e.target.value)}
         />
 
+        <FromToFilter 
+          title="From to filter"
+          filter={{
+            from: 0,
+            to: 999
+          }}
+          onRangeUpdate={(filter) => console.log('filter update', filter)}
+        />
+
         <div>
           <h3 className="font-semibold text-md mb-4">Submit or reset</h3>
           <div className="grid grid-cols-2 gap-6">
@@ -169,12 +195,7 @@ export default function FormSubmission () {
               Reset
             </button>
 
-            <button 
-              type="submit"
-              className="rounded-2xl bg-green-400 p-4 text-white"
-            >
-              Submit
-            </button>
+            <Submit />
           </div>
         </div>
       </div>
