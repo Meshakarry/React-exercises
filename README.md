@@ -1,2 +1,0 @@
-# React-exercises
-React exercises
