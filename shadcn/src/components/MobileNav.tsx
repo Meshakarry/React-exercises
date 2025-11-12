@@ -19,7 +19,7 @@ export default function MobileNav () {
           </Button>
         </SheetTrigger>
 
-        <SheetContent className="bg-white flex flex-col">
+        <SheetContent className="bg-white flex flex-col border-l-0">
         {/* <SheetHeader>
           <SheetTitle>Sheet title jer ga moram dodati</SheetTitle>
           <SheetDescription>
