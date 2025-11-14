@@ -1,18 +1,150 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
-@import "tailwindcss";
+/* @layer theme, base, components, utilities; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @config "../tailwind.config.js";
+@import "tailwindcss";
+
+/* use this later on as second font */
+/* @font-face {
+	font-family: 'Montserrat';
+	src: url('/fonts/Montserrat-Black.woff2') format('woff2');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+} */
 
 :root {
-  --background: 100% 0 0;
-  --foreground: 20% 0 0;
-  --primary: 60% 0.15 270;
-  --primary-foreground: 98% 0.03 270;
-  --secondary: 80% 0.1 150;
-  --secondary-foreground: 10% 0.02 150;
-  --tertiary: 70% 0.12 50;
-  --tertiary-foreground: 10% 0.02 50;
+	/* ─── shadcn/ui Tokens Mapping ─────────── */
+	--background: oklch(97.2% 0.007 290);
+	--foreground: oklch(21.8% 0.018 290);
+
+	--primary: oklch(0.5782 0.2398 305.51);
+	--primary-foreground: oklch(100% 0 0);
+
+	--secondary: oklch(77% 0.009 270);
+	--secondary-foreground: oklch(21.8% 0.018 290);
+
+	--muted: oklch(91.6% 0.011 290);
+	--muted-foreground:  oklch(35.7% 0.037 300);
+
+	--destructive: oklch(53.7% 0.238 17.5);
+	--destructive-foreground: oklch(100% 0 0);
+
+	--border: oklch(0.9138 0.0157 306.4);
+	--ring: oklch(0.9138 0.0157 306.4);
+	--input: oklch(77% 0.009 270);
+
+	--accent: oklch(78.5% 0.168 70.3);
+	--accent-foreground: oklch(100% 0 0);
+}
+
+.dark {
+	--background: oklch(22% 0.01 290);
+	--foreground: oklch(97.2% 0.007 290);
+
+	--primary: oklch(0.5782 0.2398 305.51);
+	--primary-foreground: oklch(100% 0 0);
+
+	--secondary: oklch(77% 0.009 270);
+	--secondary-foreground: oklch(30% 0.012 290);
+
+	--muted:  oklch(30% 0.012 290)
+	--muted-foreground: oklch(80% 0.02 290);
+
+	--destructive: oklch(60% 0.2 17.5);
+	--destructive-foreground: oklch(26% 0.01 290);
+
+	--border: oklch(40% 0.015 290);
+	--ring: oklch(40% 0.015 290);
+	--input: oklch(40% 0.015 290);
+
+	--accent: oklch(70% 0.16 166.3);
+	--accent-foreground:  oklch(26% 0.01 290);
+}
+
+@theme inline {
+  --color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
+	--color-border: var(--border);
+	--color-ring: var(--border);
+	--color-input: var(--input);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	/* this colors should be added for the shadcn ui setup in order to work inside components */
+	--color-hint: oklch(0.3804 0.0572 308.17);
+	--color-disabled: oklch(0.8662 0.0046 314.8);
+	--color-spacer: oklch(0.8715 0.0221 309.53);
+	/* --color-spacer-light: oklch(0.9138 0.0157 306.4); */
+	--color-btn-hover: oklch(0.6398 0.2066 307.42);
+	--color-btn-focus: oklch(0.432 0.2091 303.2);
+	--color-link: oklch(0.4942 0.143286 250.8873);
+	--color-link-hover: oklch(0.408 0.2603 267.31);
+	--color-link-focus: oklch(0.328 0.2107 266.95);
+}
+
+@layer base {
+	body {
+		@apply font-poppins bg-background text-foreground;
+	}
+
+	h1 {
+		@apply text-3xl leading-tight font-bold sm:text-[2rem] lg:text-[2.75rem];
+	}
+
+	h2 {
+		@apply text-2xl leading-[128%] font-bold lg:text-3xl;
+	}
+
+	h3 {
+		@apply text-xl leading-[128%] font-bold sm:text-[1.375rem]
+	}
+
+	h4 {
+		@apply text-base leading-[128%] font-bold sm:text-lg sm:leading-snug;
+	}
+
+	ul {
+		@apply flex flex-col gap-3 marker:text-primary;
+	}
+
+	/* Scrollbar */
+	::-webkit-scrollbar-track {
+		@apply bg-transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply bg-border rounded-4xl;
+	}
+
+	::-webkit-scrollbar {
+		@apply w-2 h-2;
+	}
+}
+
+.small-scrollbar::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+/* .small-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-border-light rounded-4xl;
+} */
+
+.small-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.bg-primary-gradient {
+  background: var(--color-gradient);
 }
 
 .PopoverContent {

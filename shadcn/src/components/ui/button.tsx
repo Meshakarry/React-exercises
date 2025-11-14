@@ -5,25 +5,25 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded text-lg font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+          "bg-primary text-primary-foreground [&>svg]:text-white hover:bg-btn-hover focus:bg-btn-focus",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+          "border border-primary bg-transparent hover:border-btn-hover hover:text-btn-hover focus:border-btn-focus focus:text-btn-focus",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "text-primary hover:text-btn-hover focus:text-btn-focus",
+        link: "text-link underline-offset-4 underline hover:text-link-hover focus:text-link-focus",
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
+        default: "h-10 px-7 py-2 gap-2 text-base leading-normal [&>svg]:h-4.5 [&>svg]:w-4.5",
+        sm: "h-7 px-3.5 py-1 gap-1 text-sm leading-snug [&>svg]:h-4 [&>svg]:w-4",
+        lg: "h-12 px-8 py-3 text-lg leading-snug [&>svg]:h-4.5 [&>svg]:w-4.5",
         icon: "h-9 w-9",
       },
     },
