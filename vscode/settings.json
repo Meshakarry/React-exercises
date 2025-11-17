@@ -1,0 +1,8 @@
+{
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    ".*Variants" // Add your variable naming convention here, e.g., .*Styles
+  ]
+}

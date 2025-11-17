@@ -200,7 +200,7 @@ function CalendarDayButton({
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-        "px-3 py-2 flex text-foreground font-normal aspect-square h-auto w-full min-w-[--cell-size] flex-col gap-1 [&>span]:text-xs [&>span]:opacity-70 hover:bg-primary hover:text-background focus:bg-primary focus:text-background",
+        "flex text-foreground font-normal aspect-square h-auto w-full min-w-[--cell-size] flex-col gap-1 [&>span]:text-xs [&>span]:opacity-70 hover:bg-primary hover:text-background focus:bg-primary focus:text-background",
         "data-[selected-single=true]:bg-primary data-[selected-single=true]:text-background",
         defaultClassNames.day,
         className
